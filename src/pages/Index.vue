@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex flex-center row">
-    <div class="col-12 row content-center">
+    <div class="col-12 row content-center q-pa-lg">
 
       <!-- first section -->
       <div class="title col-12 text-h3 q-pb-xl">
@@ -33,9 +33,8 @@
 
       <!-- third section -->
       <div class="content col-12 row">
-        <div v-for="(item, index) in roleList" :key="index" class="col-4 row">
-          <!-- <div class="col-12 q-ma-sm">{{ item.name }}</div> -->
-          <RoleCard :item="item" />
+        <div v-for="(item, index) in filteredRoleList" :key="index" class="col-4 row">
+          <RoleCard :item="item" class="row content-stretch" />
         </div>
       </div>
 
@@ -67,6 +66,23 @@ export default {
   methods: {
     async getRolesFromApi () {
       this.roleList = await getRoles()
+    }
+  },
+  computed: {
+    filteredRoleList () {
+      const filteredList = this.roleList
+      if (this.text !== '') {
+        return filteredList.filter(item => {
+          return item.name.toLowerCase().includes(this.text.toLowerCase())
+        })
+      }
+      if (this.model !== null && this.model !== 'Active and Inactive') {
+        return filteredList.filter(item => {
+          const mapper = { Active: true, Inactive: false}
+          return item.active === mapper[this.model]
+        })
+      }
+      return filteredList
     }
   },
   mounted() {
