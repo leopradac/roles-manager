@@ -27,7 +27,7 @@
         </div>
         <!-- right side -->
         <div class="right-side q-pr-sm col-shrink row content-center">
-          <q-btn color="blue">Create New Role</q-btn>
+          <q-btn color="blue" @click="$router.push({ name: 'createRole' })">Create New Role</q-btn>
         </div>
       </div>
 
