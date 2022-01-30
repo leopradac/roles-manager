@@ -14,9 +14,6 @@
 import NewRoleForm from 'components/NewRoleForm'
 export default {
   // name: 'PageName',
-  mounted() {
-    console.log('store', this.$store)
-  },
   components: { NewRoleForm }
 }
 </script>

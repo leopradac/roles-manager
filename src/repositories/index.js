@@ -1,3 +1,3 @@
-import { getRoles } from './api'
+import { getRoles, apiCreateNewRole } from './api'
 
-export { getRoles }
+export { getRoles, apiCreateNewRole }

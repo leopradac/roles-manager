@@ -25,10 +25,10 @@
         <div class="row content-center">Date Created: {{ parseDate(item.created_on) }}</div>
         <div class="row" v-if="item.editable">
           <div class="col-6">
-            <q-btn dense flat>Edit</q-btn>
+            <q-btn dense flat @click="$q.notify('Feature not ready to be used')">Edit</q-btn>
           </div>
           <div class="col-6">
-            <q-btn dense flat color="negative">Delete</q-btn>
+            <q-btn dense flat color="negative" @click="$q.notify('Feature not ready to be used')">Delete</q-btn>
           </div>
         </div>
         <div v-else>

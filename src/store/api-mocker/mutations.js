@@ -1,2 +1,3 @@
-export function someMutation (/* state */) {
+export function addNewRole (state, data) {
+    state['apiMockedData'].push(data)
 }
