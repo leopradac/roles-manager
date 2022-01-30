@@ -73,8 +73,8 @@ export default {
         name: this.name,
         type: this.type,
         description: this.description,
-        editable: this.editable,
-        active: this.active
+        editable: this.editable.value,
+        active: this.active.value
       }
 
       if (this.hasErrors()) {
