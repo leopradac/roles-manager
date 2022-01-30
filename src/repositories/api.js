@@ -1,6 +1,7 @@
-import mockData from './apiMockData'
-const getRoles = () => {
-    return mockData
-}
+import store from '../store/api-mocker'
 
+const state = store.state()
+const getRoles = () => {
+    return store.getters.getMockData(state)
+}
 export { getRoles };
